@@ -26,14 +26,14 @@ user7 = User.create(username:'Marju',password:"lol",household_id:1)
 
 # /////////EXPENSES
 
-expenses1 = Expense.create(user_id: 1, date: DateTime.new() ,amount:230)
-expenses2 = Expense.create(user_id: 1, date:DateTime.new(3,4,5),amount:420)
-expenses3 = Expense.create(user_id: 2, date:DateTime.new(),amount:239)
-expenses4 = Expense.create(user_id: 4, date:DateTime.new(2,3,5),amount:212)
-expenses5 = Expense.create(user_id: 1, date:DateTime.new(),amount:1029)
-expenses6 = Expense.create(user_id: 3, date:DateTime.new(2,2,2),amount:123)
-expenses7 = Expense.create(user_id: 7, date:DateTime.new() ,amount:323)
-expenses8 = Expense.create(user_id: 5, date:DateTime.new(),amount:12)
+expenses1 = Expense.create(user_id: 1, date: DateTime.new() , amount:230, purchase: "Hoover", description: "Replacement hoover, since you guys broke Henry")
+expenses2 = Expense.create(user_id: 1, date:DateTime.new(3,4,5), amount:420, purchase: "Drinks", description: "Alcohol and mixers for that banging party we're gonna throw")
+expenses3 = Expense.create(user_id: 2, date:DateTime.new(), amount:239, purchase: "Dog", description: "This house needed something uplifting!")
+expenses4 = Expense.create(user_id: 4, date:DateTime.new(2,3,5), amount:212, purchase: "Cat", description: "The dog needed a friend")
+expenses5 = Expense.create(user_id: 1, date:DateTime.new(), amount:1029, purchase: "StarWars figurine", description: "It's a collectable, ok? It's an investment")
+expenses6 = Expense.create(user_id: 3, date:DateTime.new(2,2,2), amount:123, purchase: "House Cleaning", description: "You know why...")
+expenses7 = Expense.create(user_id: 7, date:DateTime.new(), amount:323, purchase: "TV", description: "I'm tired of having to talk to you guys if I'm in the living room")
+expenses8 = Expense.create(user_id: 5, date:DateTime.new(), amount:12, purchase: "Toilet Paper", description: "")
 
 
 #/////////Payments////////////

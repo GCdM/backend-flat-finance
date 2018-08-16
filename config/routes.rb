@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :households, only: [:create, :show, :update, :destroy]
-      resources :users, only: [:create, :show, :update, :destroy]
-      resources :expenses
-      resources :payments
+      resources :users, only: [:create, :show, :update, :destroy] do
+        resources :expenses, only: [:index]
+        resources :payments
+      end
     end
   end
 end
