@@ -3,10 +3,13 @@ class HouseholdSerializer < ActiveModel::Serializer
 
   def household_data
     {
-      name: object.name,
-      member_ids: object.user_ids,
-      expenses: object.expenses,
+      household: object,
+      members: members,
     }
+  end
+
+  def members
+    object.users.map{ |user| user.username }
   end
 
 end
