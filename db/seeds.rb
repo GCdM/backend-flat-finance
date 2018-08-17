@@ -8,10 +8,10 @@
 
 #//////////households
 
-household1 = Household.create(name:"Household1")
-household2 = Household.create(name:"Household1")
-household3 = Household.create(name:"Household1")
-household4 = Household.create(name:"Household1")
+household1 = Household.create(name:"Household-1")
+household2 = Household.create(name:"Household-2")
+household3 = Household.create(name:"Household-3")
+household4 = Household.create(name:"Household-4")
 
 # USERS////////////////////
 
@@ -38,11 +38,15 @@ expenses8 = Expense.create(user_id: 5, date:DateTime.new(), amount:12, purchase:
 
 #/////////Payments////////////
 
-payment1= Payment.create(user_id:1,expense_id:1,amount: 705)
-payment2= Payment.create(user_id:3,expense_id:2,amount: 703)
-payment3= Payment.create(user_id:2,expense_id:3,amount: 702)
-payment4= Payment.create(user_id:2,expense_id:4,amount: 703)
-payment5= Payment.create(user_id:4,expense_id:5,amount: 703)
-payment6= Payment.create(user_id:5,expense_id:6,amount: 740)
-payment7= Payment.create(user_id:6,expense_id:7,amount: 730)
-payment8= Payment.create(user_id:4,expense_id:8,amount: 720)
+# payment1= Payment.create(user_id:1,expense_id:1,amount: 705, paid: true)
+# payment2= Payment.create(user_id:3,expense_id:2,amount: 703, paid: false)
+# payment3= Payment.create(user_id:2,expense_id:3,amount: 702, paid: true)
+# payment4= Payment.create(user_id:2,expense_id:4,amount: 703, paid: true)
+# payment5= Payment.create(user_id:4,expense_id:5,amount: 703, paid: false)
+# payment6= Payment.create(user_id:5,expense_id:6,amount: 740, paid: true)
+# payment7= Payment.create(user_id:6,expense_id:7,amount: 730, paid: true)
+# payment8= Payment.create(user_id:4,expense_id:8,amount: 720, paid: false)
+
+puts "--------------"
+puts "--- Seeded ---"
+puts "--------------"

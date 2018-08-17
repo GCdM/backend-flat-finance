@@ -5,6 +5,7 @@ class UserSerializer < ActiveModel::Serializer
     {
       username: object.username,
       household_id: object.household_id,
+      debit: object.debit,
     }
   end
 

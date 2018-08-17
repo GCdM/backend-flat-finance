@@ -4,7 +4,7 @@ class CreatePayments < ActiveRecord::Migration[5.2]
       t.belongs_to :user, foreign_key: true
       t.belongs_to :expense, foreign_key: true
       t.float :amount
-      t.string :status
+      t.boolean :paid
 
       t.timestamps
     end
