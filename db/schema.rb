@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2018_08_16_091807) do
     t.integer "user_id"
     t.integer "expense_id"
     t.float "amount"
-    t.string "status"
+    t.boolean "paid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["expense_id"], name: "index_payments_on_expense_id"
