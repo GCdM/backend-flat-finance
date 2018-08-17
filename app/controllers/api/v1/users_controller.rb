@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render json: @user
+      render json: { token: issue_token({ id: @user.id }) }
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -25,6 +25,24 @@ class Api::V1::UsersController < ApplicationController
 
   def destroy
     @user.destroy
+  end
+
+  def login
+    @user = User.find(username: params[:username])
+
+    if user && user.authenticate(params[:password])
+      render json: { token: issue_token({ id: @user.id }) }
+    else
+      render json: { error: "That account doesn't exist, or username and password do not match" }
+    end
+  end
+
+  def get_current_user
+    if current_user
+      render json: current_user
+    else
+      render json: { error: "Something went wrong! (get_current_user)" }
+    end
   end
 
   private

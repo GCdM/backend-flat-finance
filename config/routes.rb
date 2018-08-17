@@ -7,6 +7,9 @@ Rails.application.routes.draw do
         resources :expenses, only: [:index]
         resources :payments
       end
+      post '/login', to: 'users#login'
+      get '/current_user', to: 'users#get_current_user'
     end
   end
+
 end
