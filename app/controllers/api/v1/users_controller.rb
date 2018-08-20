@@ -7,6 +7,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       render json: { token: issue_token({ id: @user.id }) }
     else
+      byebug
       render json: @user.errors, status: :unprocessable_entity
     end
   end
@@ -38,8 +39,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def get_current_user
-    if current_user
-      render json: current_user
+    if c_user
+      render json: c_user
     else
       render json: { error: "Something went wrong! (get_current_user)" }
     end
