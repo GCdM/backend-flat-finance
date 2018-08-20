@@ -38,7 +38,7 @@ class Api::V1::HouseholdsController < ApplicationController
     @household = Household.find(params[:household_id])
     @payments = @household.payments
 
-    render json: @payments
+    render json: @payments, each_serializer: PaymentsSerializer
   end
 
   private
