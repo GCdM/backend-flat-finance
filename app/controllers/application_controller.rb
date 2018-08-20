@@ -1,8 +1,7 @@
-require './secret'
-
 class ApplicationController < ActionController::API
+  SECRET = "shush"
 
-  def current_user
+  def c_user
     User.find(token_user_id)
   end
 
@@ -14,14 +13,14 @@ class ApplicationController < ActionController::API
     request.headers['Authorization']
   end
 
-  def issue_token
-    JWT.encode(payload, secret)
+  def issue_token(payload)
+    JWT.encode(payload, SECRET)
   end
 
   def decoded_token
     if token
       begin
-        JWT.decode(token, secret, true)
+        JWT.decode(token, SECRET, true)
       rescue JWT::DecodeError
         return [{}]
       end
