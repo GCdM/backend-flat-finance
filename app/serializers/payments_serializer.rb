@@ -11,6 +11,7 @@ class PaymentsSerializer < ActiveModel::Serializer
       paid: object.paid,
       expense_id: object.expense_id,
       expense_purchase: object.expense.purchase,
+      updated_at: object.updated_at,
     }
   end
 end
