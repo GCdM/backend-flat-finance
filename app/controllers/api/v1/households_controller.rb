@@ -27,6 +27,20 @@ class Api::V1::HouseholdsController < ApplicationController
     @household.destroy
   end
 
+  def expenses
+    @household = Household.find(params[:household_id])
+    @expenses = @household.expenses
+
+    render json: @expenses, each_serializer: ExpensesSerializer
+  end
+
+  def payments
+    @household = Household.find(params[:household_id])
+    @payments = @household.payments
+
+    render json: @payments
+  end
+
   private
 
   def set_household
