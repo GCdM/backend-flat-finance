@@ -17,10 +17,11 @@ class User < ApplicationRecord
   end
 
   def credit
+    byebug
     expenses = self.expenses.select{ |expense| !expense.settled? }
     credit = 0
     expenses.each do |expense|
-      expense.each do |payment|
+      expense.payments.each do |payment|
         credit += payment.amount if !payment.paid
       end
     end

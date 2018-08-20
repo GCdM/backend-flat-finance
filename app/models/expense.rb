@@ -9,7 +9,7 @@ class Expense < ApplicationRecord
   end
 
   def settled?
-    self.payments.any?{ |payment| !payment.paid }
+    !self.payments.any?{ |payment| !payment.paid }
   end
 
   def generate_payments
