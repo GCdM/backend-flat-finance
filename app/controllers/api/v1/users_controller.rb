@@ -29,9 +29,9 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def login
-    @user = User.find(username: params[:username])
-
-    if user && user.authenticate(params[:password])
+    @user = User.find_by(username: params[:user][:username])
+    
+    if @user && @user.authenticate(params[:user][:password])
       render json: { token: issue_token({ id: @user.id }) }
     else
       render json: { error: "That account doesn't exist, or username and password do not match" }
