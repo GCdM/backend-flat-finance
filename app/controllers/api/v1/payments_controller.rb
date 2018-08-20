@@ -4,7 +4,7 @@ class Api::V1::PaymentsController < ApplicationController
   def index
     @payments = @expense.payments
 
-    render json: @payments
+    render json: @payments, each_serializer: PaymentsSerializer
   end
 
   private
