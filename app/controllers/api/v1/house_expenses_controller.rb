@@ -4,7 +4,7 @@ class Api::V1::HouseExpensesController < ApplicationController
   def index
     @expenses = @household.expenses
 
-    render json: @expenses
+    render json: @expenses, each_serializer: ExpensesSerializer
   end
 
   def create
