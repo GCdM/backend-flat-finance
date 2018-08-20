@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :households, only: [:create, :show, :update, :destroy] do
-        get '/expenses', to: 'house_expenses#index'
+        get '/expenses', to: 'households#expenses'
+        get '/payments', to: 'households#payments'
       end
       resources :users, only: [:create, :show, :update, :destroy] do
         resources :expenses, only: [:index]

@@ -1,4 +1,4 @@
-class Api::V1::HouseExpensesController < ApplicationController
+class Api::V1::ExpensesController < ApplicationController
   before_action :set_household
 
   def index
@@ -13,8 +13,8 @@ class Api::V1::HouseExpensesController < ApplicationController
 
   private
 
-  def set_household
-    @household = Household.find(params[:household_id])
+  def set_expense
+    @expense = Expense.find(params[:id])
   end
 
   def expense_params
