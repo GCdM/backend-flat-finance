@@ -1,3 +1,5 @@
+include ActionView::Helpers::NumberHelper
+
 class ExpensesSerializer < ActiveModel::Serializer
   attributes :expense_data
 
@@ -5,7 +7,7 @@ class ExpensesSerializer < ActiveModel::Serializer
     {
       id: object.id,
       user: User.find(object.user_id).username,
-      amount: object.amount,
+      amount: number_to_currency(object.amount, unit: "£ "),
       date: object.date,
       purchase: object.purchase,
       description: object.description,
