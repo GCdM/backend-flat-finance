@@ -17,7 +17,6 @@ class User < ApplicationRecord
   end
 
   def credit
-    byebug
     expenses = self.expenses.select{ |expense| !expense.settled? }
     credit = 0
     expenses.each do |expense|
