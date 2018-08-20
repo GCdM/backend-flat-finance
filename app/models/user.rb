@@ -1,3 +1,5 @@
+include ActionView::Helpers::NumberHelper
+
 class User < ApplicationRecord
   belongs_to :household, optional: true
   has_many :expenses
@@ -11,16 +13,17 @@ class User < ApplicationRecord
     debts.each do |debt|
       debit += debt.amount
     end
-    debit
+    number_to_currency(debit, unit: "£ ")
   end
 
   def credit
-    expenses = self.expenses.select{ |expense| !expense.settled }
+    expenses = self.expenses.select{ |expense| !expense.settled? }
     credit = 0
     expenses.each do |expense|
       expense.each do |payment|
         credit += payment.amount if !payment.paid
       end
     end
+    number_to_currency(credit, unit: "£ ")
   end
 end
