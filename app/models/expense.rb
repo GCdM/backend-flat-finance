@@ -2,8 +2,8 @@ class Expense < ApplicationRecord
   belongs_to :user
   has_many :payments
 
-  def initialize(user_id:, date:, purchase:, description:, amount:)
-    super(user_id: user_id, date: date, purchase: purchase, description: description, amount: amount)
+  def initialize(args)
+    super(args)
     self.save
     self.generate_payments
   end

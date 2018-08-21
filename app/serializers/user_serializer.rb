@@ -3,6 +3,7 @@ class UserSerializer < ActiveModel::Serializer
 
   def user_data
     {
+      id: object.id,
       username: object.username,
       household_id: object.household_id,
       debit: object.debit,
