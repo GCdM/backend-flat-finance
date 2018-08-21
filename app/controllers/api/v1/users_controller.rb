@@ -30,7 +30,7 @@ class Api::V1::UsersController < ApplicationController
 
   def login
     @user = User.find_by(username: params[:user][:username])
-    
+
     if @user && @user.authenticate(params[:user][:password])
       render json: { token: issue_token({ id: @user.id }) }
     else
@@ -53,6 +53,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :household_id)
   end
 end

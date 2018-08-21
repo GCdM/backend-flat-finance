@@ -1,6 +1,5 @@
 class Api::V1::ExpensesController < ApplicationController
-  before_action :set_household
-
+  
   def index
     @expenses = @household.expenses
 
@@ -9,13 +8,15 @@ class Api::V1::ExpensesController < ApplicationController
 
   def create
     @expense = Expense.new(expense_params)
+
+    if @expense.save
+      render json: @expense
+    else
+      render json: { error: @expense.errors.full_messages }
+    end
   end
 
   private
-
-  def set_expense
-    @expense = Expense.find(params[:id])
-  end
 
   def expense_params
     params.require(:expense).permit(:user_id, :date, :purchase, :description, :amount)

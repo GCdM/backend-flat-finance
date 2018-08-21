@@ -5,6 +5,7 @@ class Api::V1::HouseholdsController < ApplicationController
     @household = Household.new(household_params)
 
     if @household.save
+      User.find(params[:user_id]).update(household_id: @household.id)
       render json: @household
     else
       render json: @household.errors, status: :unprocessable_entity
