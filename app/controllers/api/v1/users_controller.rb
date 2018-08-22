@@ -7,7 +7,6 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       render json: { token: issue_token({ id: @user.id }) }
     else
-      byebug
       render json: @user.errors, status: :unprocessable_entity
     end
   end
